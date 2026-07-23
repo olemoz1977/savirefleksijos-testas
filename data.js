@@ -95,7 +95,7 @@ const DATA = {
     { id: 19, categoryId: "recognition", inverted: true,  text: { lt: "Įtemptose situacijose vis tiek prisimenu padėkoti žmonėms, ne tik ramiu metu.", en: "In tense situations, I still remember to thank people, not only when things are calm." } },
 
     { id: 4,  categoryId: "emotions",    inverted: false, text: { lt: "Man lengviau pastebėti, kas padaryta ne taip, nei pagirti, kas pavyko.", en: "It's easier for me to notice what went wrong than to praise what went well." } },
-    { id: 6,  categoryId: "emotions",    inverted: false, text: { lt: "Kartais reaguoju su ironija ar sarkazmu, kai kažkas manęs nepatenkina.", en: "I sometimes respond with irony or sarcasm when something displeases me." } },
+    { id: 6,  categoryId: "emotions",    inverted: false, text: { lt: "Kartais reaguoju su ironija ar sarkazmu, kai kažkas man nepatinka.", en: "I sometimes respond with irony or sarcasm when something displeases me." } },
     { id: 13, categoryId: "emotions",    inverted: false, text: { lt: "Įtampos akimirkomis mano emocinė reakcija būna stipresnė, nei situacija to reikalauja.", en: "In tense moments, my emotional reaction is stronger than the situation calls for." } },
     { id: 16, categoryId: "emotions",    inverted: true,  text: { lt: "Net kai nuotaika prastesnė, mano požiūris į tą patį klausimą ar žmogų išlieka gana panašus dieną iš dienos.", en: "Even on a bad day, my attitude toward the same issue or person stays fairly consistent." } },
 
