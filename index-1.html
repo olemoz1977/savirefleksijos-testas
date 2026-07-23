@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veidrodis — savirefleksijos įrankis</title>
+<meta name="description" content="Trumpas savirefleksijos įrankis žmonėms, kurie daro įtaką kitiems. Ne testas, ne diagnozė — veidrodis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="app-header no-print">
+  <span class="brand" data-i18n="brand">Veidrodis</span>
+  <button class="lang-toggle" id="langToggle" type="button">EN</button>
+</header>
+
+<main>
+
+  <!-- ============ INTRO ============ -->
+  <section class="screen active" id="screen-intro">
+    <div id="resumeBanner" class="resume-banner" style="display:none;">
+      <span id="resumeText"></span>
+      <div class="button-row">
+        <button class="secondary-button" id="discardBtn" type="button"></button>
+        <button class="primary-button" id="resumeBtn" type="button"></button>
+      </div>
+    </div>
+
+    <h1 class="hero-title" id="heroTitle"></h1>
+    <p class="hero-subtitle" id="heroSubtitle"></p>
+
+    <div class="reflect-rule"></div>
+
+    <p class="disclaimer" id="disclaimerText"></p>
+
+    <button class="primary-button" id="startBtn" type="button"></button>
+  </section>
+
+  <!-- ============ ROLE (optional context) ============ -->
+  <section class="screen" id="screen-role">
+    <h2 class="question-text" id="roleQuestionText" style="font-size:24px; min-height:auto;"></h2>
+    <div class="role-options" id="roleOptions"></div>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
+  <section class="screen" id="screen-question">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-label" id="progressLabel"></span>
+
+    <p class="question-text" id="questionText"></p>
+
+    <div class="scale-row" id="scaleRow" role="group" aria-label="Skalė 1–5"></div>
+    <div class="scale-labels">
+      <span id="scaleMinLabel"></span>
+      <span id="scaleMaxLabel"></span>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-button" id="prevBtn" type="button"></button>
+      <button class="primary-button" id="nextBtn" type="button" disabled></button>
+    </div>
+  </section>
+
+  <!-- ============ TRANSITION ============ -->
+  <section class="screen" id="screen-transition">
+    <span class="transition-mark" id="transitionTitle"></span>
+    <p class="transition-text" id="transitionText"></p>
+    <button class="primary-button" id="showResultsBtn" type="button"></button>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="screen" id="screen-results">
+    <h2 class="hero-title" style="font-size:28px;" id="resultsTitle"></h2>
+    <p class="results-intro" id="resultsIntro"></p>
+
+    <div id="categoryBars"></div>
+
+    <div class="top-areas">
+      <h3 class="top-areas-heading" id="topAreasHeading"></h3>
+      <div id="topAreasList"></div>
+    </div>
+
+    <div class="button-row no-print">
+      <button class="primary-button" id="downloadPdfBtn" type="button"></button>
+      <button class="secondary-button" id="restartBtn" type="button"></button>
+    </div>
+
+    <p class="footer-note" id="footerNote"></p>
+  </section>
+
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+/* ============================================================
+   Design tokens — "still water" palette: a quiet, reflective tool.
+   ============================================================ */
+:root {
+  --bg: #EEF1EF;
+  --panel: #E4EAE7;
+  --ink: #1E2723;
+  --ink-soft: #4B5751;
+  --line: #C7D0CB;
+  --teal: #35655C;
+  --teal-deep: #244640;
+  --teal-tint: #DCE8E4;
+  --clay: #A9714C;
+  --clay-tint: #EFE2D6;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Work Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --radius: 2px;
+  --max-width: 640px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+a { color: var(--teal-deep); }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* ---------- shell ---------- */
+
+.app-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  letter-spacing: 0.06em;
+}
+.lang-toggle:hover { border-color: var(--teal); color: var(--teal-deep); }
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+.screen { display: none; }
+.screen.active { display: block; animation: rise 420ms ease both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- hero / intro ---------- */
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.15;
+  margin: 18px 0 14px;
+  max-width: 22ch;
+}
+
+.hero-subtitle {
+  color: var(--ink-soft);
+  font-size: 18px;
+  margin: 0 0 22px;
+  max-width: 42ch;
+}
+
+.reflect-rule {
+  position: relative;
+  height: 1px;
+  background: var(--line);
+  margin: 22px 0;
+}
+.reflect-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  opacity: 0.4;
+}
+
+.disclaimer {
+  background: var(--panel);
+  border-left: 3px solid var(--teal);
+  padding: 14px 16px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 26px;
+}
+
+.primary-button {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  padding: 13px 26px;
+  font-size: 16px;
+  border-radius: var(--radius);
+  transition: background 150ms ease, transform 150ms ease;
+}
+.primary-button:hover { background: var(--teal-deep); }
+.primary-button:active { transform: translateY(1px); }
+
+.secondary-button {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 12px 22px;
+  font-size: 15px;
+  border-radius: var(--radius);
+}
+.secondary-button:hover { border-color: var(--teal); color: var(--teal-deep); }
+
+.button-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* ---------- role screen ---------- */
+
+.role-options { display: grid; gap: 10px; margin: 22px 0 28px; }
+
+.role-option {
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  font-size: 15.5px;
+  color: var(--ink);
+}
+.role-option:hover { border-color: var(--teal); background: var(--teal-tint); }
+.role-option[aria-pressed="true"] {
+  border-color: var(--teal);
+  background: var(--teal-tint);
+  font-weight: 600;
+}
+
+/* ---------- question screen ---------- */
+
+.progress-track {
+  height: 2px;
+  background: var(--line);
+  position: relative;
+  margin-bottom: 8px;
+}
+.progress-fill {
+  position: absolute;
+  left: 0; top: 0; height: 2px;
+  background: var(--teal);
+  transition: width 300ms ease;
+}
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin-bottom: 34px;
+  display: block;
+}
+
+.question-text {
+  font-family: var(--font-display);
+  font-size: 25px;
+  line-height: 1.32;
+  margin: 0 0 34px;
+  min-height: 110px;
+}
+
+.scale-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.scale-option {
+  flex: 1;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 150ms ease;
+}
+.scale-option:hover { border-color: var(--teal); color: var(--teal-deep); }
+.scale-option[aria-pressed="true"] {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+}
+.scale-labels span:last-child { text-align: right; }
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- transition screen ---------- */
+
+.transition-mark {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--teal-deep);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.transition-text {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 14px 0 34px;
+}
+
+/* ---------- results screen ---------- */
+
+.results-intro { color: var(--ink-soft); margin-bottom: 30px; }
+
+.category-row {
+  margin-bottom: 26px;
+}
+
+.category-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.category-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+}
+
+.category-score {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* the "reflecting line" — signature element:
+   a bar grows from a fixed axis, with a fainter mirrored
+   bar beneath it, echoing the idea of a mirror, not a verdict. */
+.bar-axis {
+  position: relative;
+  height: 10px;
+  background: var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.bar-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--teal);
+  border-radius: var(--radius);
+  transition: width 700ms cubic-bezier(.2,.8,.2,1);
+}
+.bar-fill.is-clay { background: var(--clay); }
+
+.bar-mirror {
+  height: 5px;
+  margin-top: 3px;
+  border-radius: var(--radius);
+  opacity: 0.28;
+  transition: width 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.category-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.top-areas {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 22px 22px 6px;
+  margin: 36px 0;
+}
+
+.top-areas-heading {
+  font-family: var(--font-display);
+  font-size: 19px;
+  margin: 0 0 18px;
+}
+
+.top-area-item {
+  border-top: 1px solid var(--line);
+  padding: 16px 0;
+}
+.top-area-item:first-child { border-top: none; padding-top: 0; }
+
+.top-area-name {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.reflection-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clay);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.reflection-question {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.footer-note {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+/* ---------- resume banner ---------- */
+
+.resume-banner {
+  background: var(--clay-tint);
+  border: 1px solid var(--clay);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  font-size: 14.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 420px) {
+  .hero-title { font-size: 28px; }
+  .question-text { font-size: 21px; min-height: 90px; }
+  .scale-option { font-size: 13px; }
+}
+
+/* ---------- print (PDF export) ---------- */
+
+@media print {
+  .app-header, .no-print { display: none !important; }
+  body { background: #fff; font-size: 13px; }
+  main { max-width: 100%; padding: 0; }
+  .screen { display: none !important; }
+  .screen.active { display: block !important; }
+  .bar-fill, .bar-mirror { transition: none; }
+  .top-areas { background: none; border: 1px solid #000; }
+}
