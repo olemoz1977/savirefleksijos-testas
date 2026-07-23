@@ -13,17 +13,10 @@ data.js      — 20 teiginių, 6 kategorijos, LT/EN tekstai, balų logika
 app.js       — būsenos valdymas, atsakymų skaičiavimas, sesijos išsaugojimas
 ```
 
-Jokių priklausomybių ar build žingsnio — grynas HTML/CSS/JS. Veikia tiesiog atidarius `index.html` arba per GitHub Pages.
-
-## Paleidimas lokaliai
-
-Atidarykite `index.html` naršyklėje. (Jei naršyklė riboja `fetch`/šriftus per `file://`, paleiskite paprastą serverį: `python3 -m http.server` ir eikite į `http://localhost:8000`.)
+Jokių priklausomybių ar build žingsnio — grynas HTML/CSS/JS.
 
 ## Diegimas per GitHub Pages
 
-1. Įkelkite šiuos failus į repo šaknį (arba `/docs` katalogą).
-2. Repo nustatymuose: **Settings → Pages → Source** pasirinkite šaką ir katalogą.
-3. Po kelių minučių įrankis bus pasiekiamas per `https://<vartotojas>.github.io/<repo>/`.
 
 ## Privatumas / duomenys
 
