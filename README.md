@@ -1,5 +1,5 @@
 # Veidrodis — savirefleksijos įrankis
-
+ [🚀 Pradėti testą](https://olemoz1977.github.io/savirefleksijos-testas)
 Trumpas (3–5 min.) savistabos įrankis žmonėms, kurie daro įtaką kitiems: *"Ar mano elgesio įpročiai kartais stabdo mano augimą?"*
 
 Tai **nėra** psichologinis testas, diagnozė, GLA360 alternatyva ar kompetencijų vertinimas. Rezultatas — refleksija, ne nuosprendis.
