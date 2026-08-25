@@ -1,0 +1,42 @@
+name: One-time Mirror host language fix
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/one-time-host-language.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Patch initial language
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app.js')
+          s=p.read_text(encoding='utf-8')
+          old='''const state = {\n  lang: "lt",'''
+          new='''function initialLanguage() {\n  const forced = new URLSearchParams(window.location.search).get("lang");\n  if (forced === "lt" || forced === "en") return forced;\n  const host = window.location.hostname.toLowerCase();\n  if (host === "2rasi.com" || host.endsWith(".2rasi.com")) return "en";\n  return "lt";\n}\n\nconst state = {\n  lang: initialLanguage(),'''
+          if old not in s:
+              raise SystemExit('language anchor not found')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+      - name: Verify
+        run: |
+          grep -q 'lang: initialLanguage()' app.js
+          grep -q 'host === "2rasi.com"' app.js
+      - name: Commit
+        shell: bash
+        run: |
+          rm .github/workflows/one-time-host-language.yml
+          git config user.name 'olemoz1977'
+          git config user.email 'olemoz1977@gmail.com'
+          git add app.js .github/workflows/one-time-host-language.yml
+          git diff --cached --check
+          git commit -m 'fix(i18n): choose Mirror language from host'
+          git push origin HEAD:main
