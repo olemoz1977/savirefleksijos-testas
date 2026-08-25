@@ -6,8 +6,16 @@
 const STORAGE_KEY = "reflectionSession.v1";
 const SESSION_MAX_AGE_DAYS = 30;
 
+function initialLanguage() {
+  const forced = new URLSearchParams(window.location.search).get("lang");
+  if (forced === "lt" || forced === "en") return forced;
+  const host = window.location.hostname.toLowerCase();
+  if (host === "2rasi.com" || host.endsWith(".2rasi.com")) return "en";
+  return "lt";
+}
+
 const state = {
-  lang: "lt",
+  lang: initialLanguage(),
   role: null,
   order: [],          // shuffled item ids
   index: 0,           // current question index
